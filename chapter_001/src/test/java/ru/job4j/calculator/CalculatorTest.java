@@ -24,7 +24,7 @@ public class CalculatorTest {
         assertThat(result, is(expected));
     }
     /**
-     * Test calculator Вычетание.
+     * Test calculator Вычитание.
      */
     @Test
     public void whenSubtractTwoMinusOneThenOne() {
