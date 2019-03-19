@@ -62,6 +62,6 @@ public class Triangle {
      * @return Возвращает True или False.
      */
     private boolean exist(double a, double b, double c) {
-        return a < (b + c) || b < (a + c) || c < (a + b);
+        return a < (b + c) && b < (a + c) && c < (a + b);
     }
 }
