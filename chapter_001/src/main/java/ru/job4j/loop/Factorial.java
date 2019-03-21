@@ -15,12 +15,8 @@ public class Factorial {
      * @return Возвращает факториал числа n.
      */
     public int calc(int n) {
-        int result = 0;
-        for (int i = 0; i <= n; i++) {
-            if (i == 0) {
-                i = 1;
-                result = 1;
-            }
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
             result = result * i;
         }
         return result;
