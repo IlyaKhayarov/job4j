@@ -10,7 +10,6 @@ package ru.job4j.loop;
 public class Factorial {
     /**
      * Факториал от числа.
-     *
      * @param n Число.
      * @return Возвращает факториал числа n.
      */
