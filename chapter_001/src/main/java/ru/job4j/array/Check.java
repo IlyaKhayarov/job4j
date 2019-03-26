@@ -20,6 +20,7 @@ public class Check {
         for (boolean i : data) {
             if (i != b) {
                 result = false;
+                break;
             }
         }
         return result;
