@@ -15,12 +15,10 @@ public class BubbleSort {
      * @return Остсортированный массив.
      */
     public int[] sort(int[] array) {
-        boolean b = false;
-        while (!b) {
-            b = true;
-            for (int i = 0; i < array.length - 1; i++) {
+        int g = array.length - 1;
+        for (int z = g; z >= 1; z--) {
+            for (int i = 0; i < g; i++) {
                 if (array[i] > (array[i + 1])) {
-                    b = false;
                     int tmp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = tmp;
