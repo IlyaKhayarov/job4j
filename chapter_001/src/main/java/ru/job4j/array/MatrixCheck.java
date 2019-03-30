@@ -18,10 +18,14 @@ public class MatrixCheck {
         boolean result = true;
         int z = data.length / 2 + 1;
         boolean b = data[z][z];
-        for (int i = 0; i < data.length; i += 2) {
-                if (data[i][0] != b || data[0][i] != b) {
-                    result = false;
-                    break;
+        for (int i = 1; i < data.length; i++) {
+                if (data[0][0] != data[i][i]) {
+                result = false;
+                break;
+            }
+                if (data[0][2] != data[0][i]) {
+                result = false;
+                break;
             }
         }
         return result;
