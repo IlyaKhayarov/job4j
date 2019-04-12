@@ -82,5 +82,18 @@ public class MergeTest {
         );
         assertThat(result, is(expect));
     }
+    /**
+     * 2х2.
+     */
+    @Test
+    public void whenAskOrder2() {
+        Merge algo = new Merge();
+        int[] expect = {1, 2, 3, 4};
+        int[] result = algo.merge(
+                new int[]{1, 3},
+                new int[]{2, 4}
+        );
+        assertThat(result, is(expect));
+    }
 
 }
