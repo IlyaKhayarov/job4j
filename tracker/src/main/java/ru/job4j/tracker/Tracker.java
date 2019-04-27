@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Tracker {
@@ -23,63 +24,62 @@ public class Tracker {
     /**
      * Метод генерирует уникальный ключ для заявки.
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+     *
      * @return Уникальный ключ.
      */
     private String generateId() {
         //Реализовать метод генерации.
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
-}
+    }
+
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int i = 0; i < items.length; i++) {
-            if(item.getId().equals(id)) {
+        for (int i = 0; i < this.position; i++) {
+            if (item.getId().equals(id)) {
                 this.items[i] = item;
+                item.setId(id);
                 result = true;
                 break;
             }
         }
         return result;
     }
+
     public boolean delete(String id) {
-        int j = 0;
         boolean result = false;
-        for (Item item : items) {
-            if (item.getId().equals(id)) {
-                this.position = j;
+
+        for (int i = 0; i < this.position; i++) {
+            if (this.items[i].getId().equals(id)) {
+                result = true;
+                this.position--;
+                System.arraycopy(items, i + 1, items, i, this.position);
                 break;
             }
         }
-        for(int k = j; k < items.length - 1; k++) {
-            items[k] = items[k + 1];
-            position--;
-        }
-        System.arraycopy(items, 0, items, 0, position);
-        result = true;
         return result;
     }
+
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        for(int i = 0; i < this.position; i++) {
-            result[i] = this.items[i];
-        }
-        return result;
+        return Arrays.copyOf(this.items, this.position);
     }
+
     public Item[] findByName(String key) {
-        Item[] result = null;
+        Item[] result = new Item[this.position];
         int j = 0;
-        for(Item item : items) {
-            if (item.getName().equals(key)) {
+        for (int i = 0; i < this.position; i++) {
+            if (this.items[i] != null && this.items[i].getName().equals(key)) {
                 j++;
-                System.arraycopy(items, 0, result, 0, j);
+                System.arraycopy(items, i, result, 0, j);
             }
         }
         return result;
     }
+
     public Item findById(String id) {
         Item result = null;
-        for(Item item : items) {
-            if (item != null && item.getId().equals(id)) {
-                result = item;
+        for (int i = 0; i < this.position; i++) {
+            if (this.items[i] != null && this.items[i].getId().equals(id)) {
+                result = this.items[i];
                 break;
             }
         }
