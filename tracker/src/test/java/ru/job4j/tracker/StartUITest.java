@@ -18,6 +18,17 @@ public class StartUITest {
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
+    private String st2 =
+            "Меню. \r\n" +
+                    "0. Add new Item\r\n" +
+                    "1. Show all items\r\n" +
+                    "2. Edit item\r\n" +
+                    "3. Delete item\r\n" +
+                    "4. Find item by Id\r\n" +
+                    "5. Find items by name\r\n" +
+                    "6. Exit Program\r\n";
+
+
     @Before
     public void beforeMethod() {
         System.out.println("execute before method");
@@ -35,30 +46,16 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"}); //создаем StubInput с последовательностью действий
         new StartUI(input, tracker).init();
+        StringBuilder st = new StringBuilder();
         assertThat(new String(this.out.toByteArray()),
                 is(
                         (new StringBuilder()
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program\r\n")
+                                .append(st2)
                                 .append("------------ Добавление новой заявки --------------\r\n")
                                 .append("------------ Новая заявка с getId : ")
                                 .append(tracker.findAll()[0].getId())
                                 .append(" -----------\r\n")
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program")
-                                .append(System.lineSeparator())
+                                .append(st2)
                                 .toString()
                         )
                 )
@@ -75,25 +72,10 @@ public class StartUITest {
         assertThat(new String(this.out.toByteArray()),
                 is(
                         (new StringBuilder()
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program\r\n")
+                                .append(st2)
                                 .append("------------------- Заявка найдена ---------------------\r\n")
                                 .append("------------ Замена заявки прошла успешно --------------\r\n")
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program")
-                                .append(System.lineSeparator())
+                                .append(st2)
                                 .toString()
                         )
                 )
@@ -110,25 +92,10 @@ public class StartUITest {
         assertThat(new String(this.out.toByteArray()),
                 is(
                         (new StringBuilder()
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program\r\n")
+                                .append(st2)
                                 .append("------------------- Заявка найдена -----------------------\r\n")
                                 .append("------------ Удаление заявки прошло успешно --------------\r\n")
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program")
-                                .append(System.lineSeparator())
+                                .append(st2)
                                 .toString()
                         )
                 )
@@ -145,28 +112,13 @@ public class StartUITest {
         assertThat(new String(this.out.toByteArray()),
                 is(
                         (new StringBuilder()
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program\r\n")
+                                .append(st2)
                                 .append("------------ Вывод всех заявок --------------\r\n")
                                 .append("-----------------------------------------------------\r\n")
                                 .append("Номер заявки   Имя   Описание       id   \r\n")
                                 .append("1              " + tracker.findAll()[0].getName() + "" + tracker.findAll()[0].getDecs() + "          " + tracker.findAll()[0].getId() + "\r\n")
                                 .append("-----------------------------------------------------\r\n")
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program")
-                                .append(System.lineSeparator())
+                                .append(st2)
                                 .toString()
                         )
                 )
@@ -182,28 +134,13 @@ public class StartUITest {
         assertThat(new String(this.out.toByteArray()),
                 is(
                         (new StringBuilder()
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program\r\n")
+                                .append(st2)
                                 .append("------------ Заявка найдена --------------\r\n")
                                 .append("-----------------------------------------------------\r\n")
                                 .append("Номер заявки   Имя   Описание       id   \r\n")
                                 .append("" + tracker.findAll()[0].getId() + "  " + tracker.findAll()[0].getName() + "" + tracker.findAll()[0].getDecs() + "           " + tracker.findAll()[0].getId() + "\r\n")
                                 .append("-----------------------------------------------------\r\n")
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program")
-                                .append(System.lineSeparator())
+                                .append(st2)
                                 .toString()
                         )
                 )
@@ -219,28 +156,13 @@ public class StartUITest {
         assertThat(new String(this.out.toByteArray()),
                 is(
                         (new StringBuilder()
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program\r\n")
+                                .append(st2)
                                 .append("------------ Поиск закончен --------------\r\n")
                                 .append("-----------------------------------------------------\r\n")
                                 .append("Номер заявки   Имя   Описание       id   \r\n")
                                 .append("1              " + tracker.findAll()[0].getName() + "" + tracker.findAll()[0].getDecs() + "           " + tracker.findAll()[0].getId() + "\r\n")
                                 .append("-----------------------------------------------------\r\n")
-                                .append("Меню. \r\n")
-                                .append("0. Add new Item\r\n")
-                                .append("1. Show all items\r\n")
-                                .append("2. Edit item\r\n")
-                                .append("3. Delete item\r\n")
-                                .append("4. Find item by Id\r\n")
-                                .append("5. Find items by name\r\n")
-                                .append("6. Exit Program")
-                                .append(System.lineSeparator())
+                                .append(st2)
                                 .toString()
                         )
                 )
