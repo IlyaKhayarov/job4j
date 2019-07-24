@@ -1,6 +1,5 @@
 package ru.job4j.start;
 
-import ru.job4j.tracker.Item;
 import ru.job4j.tracker.Tracker;
 
 public class StartUI {
@@ -22,7 +21,14 @@ public class StartUI {
     private static final String EXIT = "6";
 
     public void init() {
-        boolean exit = false;
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        menu.fillActions();
+        do {
+            menu.show();
+            menu.select(Integer.valueOf(input.ask("select:")));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+
+       /* boolean exit = false;
         while (!exit) {
             this.showMenu();
             String answer = this.input.ask("Введите пункт меню : ");
@@ -41,10 +47,10 @@ public class StartUI {
             } else if (EXIT.equals(answer)) {
                 exit = true;
             }
-        }
+        }*/
     }
 
-    private void createItem() {
+    /*private void createItem() {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
@@ -61,11 +67,11 @@ public class StartUI {
             System.out.printf("%-15s%-6s%-15s%-5s%n", "Номер заявки", "Имя", "Описание", "id");
             System.out.printf("%-15s%-6s%-15s%-5s%n", j, item.getName(), item.getDecs(), item.getId());
             System.out.println("-----------------------------------------------------");
-            /*System.out.println("Заявка номер " + j + "\n" +
+            *//*System.out.println("Заявка номер " + j + "\n" +
                                 "Имя - " + item.getName() + "\n" +
                                     "Описание - " + item.getDecs() + "\n" +
                                         "id - " + item.getId() + "\n"
-            );*/
+            );*//*
             j++;
         }
     }
@@ -136,7 +142,7 @@ public class StartUI {
         System.out.println("4. Find item by Id");
         System.out.println("5. Find items by name");
         System.out.println("6. Exit Program");
-    }
+    }*/
 
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
