@@ -3,9 +3,10 @@ package ru.job4j.tracker;
 import ru.job4j.start.Input;
 
 public class ExitProgram implements UserAction {
-    private static final String EXIT = "6";
+    private static String EXIT;
 
     public ExitProgram(int i, String a) {
+        this.EXIT = String.valueOf(i);
     }
 
     @Override
@@ -20,7 +21,7 @@ public class ExitProgram implements UserAction {
 
     @Override
     public String info() {
-        return "Exit Program.";
+        return EXIT + ". Exit Program.";
     }
 
 }

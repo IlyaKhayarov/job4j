@@ -5,9 +5,10 @@ import ru.job4j.start.Input;
 
 public class AddItem implements UserAction {
 
-    private static final String ADD = "0";
+    private static String ADD;
 
     public AddItem(int i, String a) {
+        this.ADD = String.valueOf(i);
     }
 
     @Override
@@ -29,7 +30,7 @@ public class AddItem implements UserAction {
 
     @Override
     public String info() {
-        return "Add new Item.";
+        return ADD + ". Add new Item.";
     }
 
 }

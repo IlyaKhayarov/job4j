@@ -46,8 +46,12 @@ public class MenuTracker {
         actions.add(new ExitProgram(6, "Exit Program"));
     }
 
-    public void select(int key) {
+
+    public int select(int key) {
+
         actions.get(key).execute(input, tracker);
+
+        return key;
     }
 
     public void show() {

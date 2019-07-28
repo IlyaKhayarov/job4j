@@ -3,9 +3,10 @@ package ru.job4j.tracker;
 import ru.job4j.start.Input;
 
 public class UpdateItem implements UserAction {
-    private static final String EDIT = "2";
+    private static  String EDIT = "2";
 
     public UpdateItem(int i, String a) {
+        this.EDIT = String.valueOf(i);
     }
 
     @Override
@@ -31,7 +32,7 @@ public class UpdateItem implements UserAction {
 
     @Override
     public String info() {
-        return "Edit item.";
+        return EDIT + ". Edit item.";
     }
 
 }

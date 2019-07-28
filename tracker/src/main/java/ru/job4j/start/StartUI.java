@@ -2,8 +2,12 @@ package ru.job4j.start;
 
 import ru.job4j.tracker.Tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StartUI {
 
+    private int[] ranges = new int[] {1, 2, 3, 4, 5, 6};
     private final Input input;
     private final Tracker tracker;
 
@@ -12,21 +16,25 @@ public class StartUI {
         this.tracker = tracker;
     }
 
-    private static final String ADD = "0";
+    /*private static final String ADD = "0";
     private static final String ALL = "1";
     private static final String EDIT = "2";
     private static final String DELETE = "3";
     private static final String FIND_ID = "4";
     private static final String FIND_NAME = "5";
-    private static final String EXIT = "6";
+    private static final String EXIT = "6";*/
 
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
         menu.fillActions();
+        for(int i = 0; i < menu.getActionsLength(); i++) {
+            range.add(i);
+        }
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask("select:")));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+            menu.select(input.ask("select:", range));
+        } while (!("y").equals(this.input.ask("Exit?(y): ")));
 
        /* boolean exit = false;
         while (!exit) {
@@ -145,6 +153,6 @@ public class StartUI {
     }*/
 
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }

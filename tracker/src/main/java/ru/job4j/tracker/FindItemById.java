@@ -3,9 +3,10 @@ package ru.job4j.tracker;
 import ru.job4j.start.Input;
 
 public class FindItemById implements UserAction {
-    private static final String FIND_ID = "4";
+    private static String FIND_ID;
 
     public FindItemById(int i, String a) {
+        this.FIND_ID = String.valueOf(i);
     }
 
     @Override
@@ -15,10 +16,14 @@ public class FindItemById implements UserAction {
 
     @Override
     public void execute(Input input, Tracker tracker) {
-        String id = input.ask("Введите id заявки для удаления :");
-        if (tracker.delete(id)) {
-            System.out.println("------------------- Заявка найдена -----------------------");
-            System.out.println("------------ Удаление заявки прошло успешно --------------");
+        String id = input.ask("Введите id заявки для поиска :");
+        Item item = tracker.findById(id);
+        if (item != null) {
+            System.out.println("------------ Заявка найдена --------------");
+            System.out.println("-----------------------------------------------------");
+            System.out.printf("%-15s%-6s%-15s%-5s%n", "Номер заявки", "Имя", "Описание", "id");
+            System.out.printf("%-15s%-6s%-15s%-5s%n", item.getId(), item.getName(), item.getDecs(), item.getId());
+            System.out.println("-----------------------------------------------------");
         } else {
             System.out.println("------------ Заявка не найдена --------------");
         }
@@ -26,7 +31,7 @@ public class FindItemById implements UserAction {
 
     @Override
     public String info() {
-        return "Find item by id.";
+        return FIND_ID + ". Find item by id.";
     }
 
 }

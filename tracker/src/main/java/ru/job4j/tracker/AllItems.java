@@ -3,9 +3,10 @@ package ru.job4j.tracker;
 import ru.job4j.start.Input;
 
 public class AllItems implements UserAction {
-    private static final String ALL = "1";
+    private static String ALL;
 
     public AllItems(int i, String a) {
+        this.ALL = String.valueOf(i);
     }
 
     @Override
@@ -28,7 +29,7 @@ public class AllItems implements UserAction {
 
     @Override
     public String info() {
-        return "All Items.";
+        return ALL + ". All Items.";
     }
 
 }

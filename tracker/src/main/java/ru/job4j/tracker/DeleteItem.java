@@ -3,9 +3,10 @@ package ru.job4j.tracker;
 import ru.job4j.start.Input;
 
 public class DeleteItem implements UserAction {
-    private static final String DEL = "3";
+    private static String DEL;
 
     public DeleteItem(int i, String a) {
+        this.DEL = String.valueOf(i);
     }
 
     @Override
@@ -26,7 +27,7 @@ public class DeleteItem implements UserAction {
 
     @Override
     public String info() {
-        return "Delete item.";
+        return DEL + ". Delete item.";
     }
 
 }
