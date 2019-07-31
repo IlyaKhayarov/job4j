@@ -28,7 +28,7 @@ public class FindItemsByName implements UserAction {
                 j++;
             }
         }
-        System.out.println("------------ Ничего не найдено --------------");
+        System.out.println("------------------ Поиск закончен -------------------");
     }
 
 

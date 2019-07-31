@@ -22,11 +22,11 @@ public class UpdateItem implements UserAction {
         String desc = input.ask("Введите новое описание заявки :");
         Item item2 = new Item(name, desc, System.currentTimeMillis());
         if (item != null) {
-            System.out.println("------------------- Заявка найдена ---------------------");
+            System.out.println("------------------ Заявка найдена -------------------");
             tracker.replace(id, item2);
-            System.out.println("------------ Замена заявки прошла успешно --------------");
+            System.out.println("----------- Замена заявки прошла успешно ------------");
         } else {
-            System.out.println("------------ Заявка не найдена --------------");
+            System.out.println("----------------- Заявка не найдена -----------------");
         }
     }
 

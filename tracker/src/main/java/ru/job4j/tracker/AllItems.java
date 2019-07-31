@@ -16,7 +16,7 @@ public class AllItems implements UserAction {
 
     @Override
     public void execute(Input input, Tracker tracker) {
-        System.out.println("------------ Вывод всех заявок --------------");
+        System.out.println("----------------- Вывод всех заявок -----------------");
         int j = 1;
         for (Item item : tracker.findAll()) {
             System.out.println("-----------------------------------------------------");
