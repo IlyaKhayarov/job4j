@@ -6,13 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuTracker {
-    private static final String ADD = "0";
-    private static final String ALL = "1";
-    private static final String EDIT = "2";
-    private static final String DELETE = "3";
-    private static final String FIND_ID = "4";
-    private static final String FIND_NAME = "5";
-    private static final String EXIT = "6";
     /**
      * @param хранит ссылку на объект
      */
@@ -45,7 +38,6 @@ public class MenuTracker {
         actions.add(new FindItemsByName(5, "Find item by name"));
         actions.add(new ExitProgram(6, "Exit Program"));
     }
-
 
     public int select(int key) {
 

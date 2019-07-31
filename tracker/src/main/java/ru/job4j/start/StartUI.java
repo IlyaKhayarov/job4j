@@ -7,7 +7,6 @@ import java.util.List;
 
 public class StartUI {
 
-    private int[] ranges = new int[] {1, 2, 3, 4, 5, 6};
     private final Input input;
     private final Tracker tracker;
 
@@ -153,6 +152,6 @@ public class StartUI {
     }*/
 
     public static void main(String[] args) {
-        new StartUI(new ValidateInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(new ConsoleInput()), new Tracker()).init();
     }
 }
