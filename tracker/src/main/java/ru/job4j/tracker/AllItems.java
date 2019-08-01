@@ -2,16 +2,10 @@ package ru.job4j.tracker;
 
 import ru.job4j.start.Input;
 
-public class AllItems implements UserAction {
-    private static String ALL;
+public class AllItems extends BaseAction {
 
     public AllItems(int i, String a) {
-        this.ALL = String.valueOf(i);
-    }
-
-    @Override
-    public int key() {
-        return Integer.parseInt(ALL);
+        super(i, a);
     }
 
     @Override
@@ -26,10 +20,4 @@ public class AllItems implements UserAction {
             j++;
         }
     }
-
-    @Override
-    public String info() {
-        return ALL + ". All Items.";
-    }
-
 }

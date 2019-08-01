@@ -2,16 +2,10 @@ package ru.job4j.tracker;
 
 import ru.job4j.start.Input;
 
-public class FindItemsByName implements UserAction {
-    private static String FIND_NAME;
+public class FindItemsByName extends BaseAction {
 
     public FindItemsByName(int i, String a) {
-        this.FIND_NAME = String.valueOf(i);
-    }
-
-    @Override
-    public int key() {
-        return Integer.parseInt(FIND_NAME);
+        super(i, a);
     }
 
     @Override
@@ -30,11 +24,4 @@ public class FindItemsByName implements UserAction {
         }
         System.out.println("------------------ Поиск закончен -------------------");
     }
-
-
-    @Override
-    public String info() {
-        return FIND_NAME + ". Find item by name.";
-    }
-
 }

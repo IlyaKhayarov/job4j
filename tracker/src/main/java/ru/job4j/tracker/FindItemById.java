@@ -2,16 +2,10 @@ package ru.job4j.tracker;
 
 import ru.job4j.start.Input;
 
-public class FindItemById implements UserAction {
-    private static String FIND_ID;
+public class FindItemById extends BaseAction {
 
     public FindItemById(int i, String a) {
-        this.FIND_ID = String.valueOf(i);
-    }
-
-    @Override
-    public int key() {
-        return Integer.parseInt(FIND_ID);
+        super(i, a);
     }
 
     @Override
@@ -28,10 +22,4 @@ public class FindItemById implements UserAction {
             System.out.println("---------------- Заявка не найдена ------------------");
         }
     }
-
-    @Override
-    public String info() {
-        return FIND_ID + ". Find item by id.";
-    }
-
 }

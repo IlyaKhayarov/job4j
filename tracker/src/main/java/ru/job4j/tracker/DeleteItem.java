@@ -2,16 +2,11 @@ package ru.job4j.tracker;
 
 import ru.job4j.start.Input;
 
-public class DeleteItem implements UserAction {
-    private static String DEL;
+public class DeleteItem extends BaseAction {
+
 
     public DeleteItem(int i, String a) {
-        this.DEL = String.valueOf(i);
-    }
-
-    @Override
-    public int key() {
-        return Integer.parseInt(DEL);
+        super(i, a);
     }
 
     @Override
@@ -24,10 +19,4 @@ public class DeleteItem implements UserAction {
             System.out.println("---------------- Заявка не найдена -------------------");
         }
     }
-
-    @Override
-    public String info() {
-        return DEL + ". Delete item.";
-    }
-
 }

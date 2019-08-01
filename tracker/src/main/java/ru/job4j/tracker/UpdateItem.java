@@ -2,16 +2,10 @@ package ru.job4j.tracker;
 
 import ru.job4j.start.Input;
 
-public class UpdateItem implements UserAction {
-    private static  String EDIT = "2";
+public class UpdateItem extends BaseAction {
 
     public UpdateItem(int i, String a) {
-        this.EDIT = String.valueOf(i);
-    }
-
-    @Override
-    public int key() {
-        return Integer.parseInt(EDIT);
+        super(i, a);
     }
 
     @Override
@@ -29,11 +23,5 @@ public class UpdateItem implements UserAction {
             System.out.println("----------------- Заявка не найдена -----------------");
         }
     }
-
-    @Override
-    public String info() {
-        return EDIT + ". Edit item.";
-    }
-
 }
 

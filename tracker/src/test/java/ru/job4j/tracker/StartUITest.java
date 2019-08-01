@@ -19,8 +19,8 @@ public class StartUITest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     private String st2 =
-                    "0. Add new Item.\r\n" +
-                    "1. All Items.\r\n" +
+                    "0. Add program.\r\n" +
+                    "1. Show all items.\r\n" +
                     "2. Edit item.\r\n" +
                     "3. Delete item.\r\n" +
                     "4. Find item by id.\r\n" +
