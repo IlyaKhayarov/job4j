@@ -16,12 +16,12 @@ public class TriangleTest {
         Triangle triangle = new Triangle();
         assertThat(triangle.draw(), is(
                 new StringBuilder()
-                        .append("      *      \n")
-                        .append("     * *     \n")
-                        .append("    *   *    \n")
-                        .append("   *     *   \n")
-                        .append("  *       *  \n")
-                        .append(" *********** ")
+                        .append("      *      \n"+
+                                "     * *     \n"+
+                                "    *   *    \n"+
+                                "   *     *   \n"+
+                                "  *       *  \n"+
+                                " *********** ")
                         .toString()
         ));
     }

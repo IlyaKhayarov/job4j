@@ -1,14 +1,14 @@
 package ru.job4j.Strategy;
 
-import org.junit.Before;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class PaintTest {
 
@@ -58,17 +58,19 @@ public class PaintTest {
     @Test
     public void whenDrawTriangle() {
         new Paint().draw(new Triangle());
-        assertThat(new String(out.toByteArray()), is(
-                new StringBuilder()
-                        .append("      *      \n")
-                        .append("     * *     \n")
-                        .append("    *   *    \n")
-                        .append("   *     *   \n")
-                        .append("  *       *  \n")
-                        .append(" *********** ")
-                        .append(System.lineSeparator())
-                        .toString()
+        assertThat(new String(out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append("      *      \n")
+                                .append("     * *     \n")
+                                .append("    *   *    \n")
+                                .append("   *     *   \n")
+                                .append("  *       *  \n")
+                                .append(" *********** ")
+                                .append(System.lineSeparator())
+                                .toString()
                 )
         );
     }
+
 }

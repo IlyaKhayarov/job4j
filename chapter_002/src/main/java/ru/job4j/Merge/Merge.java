@@ -1,4 +1,4 @@
-package Merge;
+package ru.job4j.Merge;
 import java.util.Arrays;
 /**
  * Объединить два массива
