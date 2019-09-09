@@ -13,7 +13,6 @@ public class StubInput extends Ask {
     public String ask(String question) {
         return answers[position++];
     }
-
     @Override
     public int ask(String question, List<Integer> range) {
         return super.ask(question, range);
