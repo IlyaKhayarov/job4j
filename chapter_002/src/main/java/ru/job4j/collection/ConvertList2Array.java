@@ -9,8 +9,8 @@ public class ConvertList2Array {
         for (Integer num : list) {
             array[row][cell] = num;
             cell += 1;
-            if(cell%3 == 0) {
-                if (row != 3) {
+            if(cell%groups == 0) {
+                if (row != cells) {
                     row += 1;
                     cell = 0;
                 }
