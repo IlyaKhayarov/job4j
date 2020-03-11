@@ -53,13 +53,13 @@ public class StartUITest {
                                 .append(st2)
                                 .append("------------- Добавление новой заявки ---------------\r\n")
                                 .append("------------ Новая заявка с Id : ")
-                                .append(tracker.findAll()[0].getId())
+                                .append(tracker.findAll().get(0).getId())
                                 .append(" -----------\r\n")
                                 .append("------------ Новая заявка с Name : ")
-                                .append(tracker.findAll()[0].getName())
+                                .append(tracker.findAll().get(0).getName())
                                 .append(" -----------\r\n")
                                 .append("------------ Новая заявка с Desc : ")
-                                .append(tracker.findAll()[0].getDecs())
+                                .append(tracker.findAll().get(0).getDecs())
                                 .append(" -----------\r\n")
                                 .toString()
                         )
@@ -125,9 +125,9 @@ public class StartUITest {
                                 .append("----------------- Вывод всех заявок -----------------\r\n")
                                 .append("-----------------------------------------------------\r\n")
                                 .append("Номер заявки   Имя   Описание       id   \r\n")
-                                .append("1              " + tracker.findAll()[0].getName() +
-                                        "" + tracker.findAll()[0].getDecs() +
-                                        "          " + tracker.findAll()[0].getId() + "\r\n")
+                                .append("1              " + tracker.findAll().get(0).getName() +
+                                        "" + tracker.findAll().get(0).getDecs() +
+                                        "          " + tracker.findAll().get(0).getId() + "\r\n")
                                 .append("-----------------------------------------------------\r\n")
                                 .toString()
                         )
@@ -150,7 +150,10 @@ public class StartUITest {
                                 .append("----------------- Заявка найдена --------------------\r\n")
                                 .append("-----------------------------------------------------\r\n")
                                 .append("Номер заявки   Имя   Описание       id   \r\n")
-                                .append("" + tracker.findAll()[0].getId() + "  " + tracker.findAll()[0].getName() + "" + tracker.findAll()[0].getDecs() + "           " + tracker.findAll()[0].getId() + "\r\n")
+                                .append("" + tracker.findAll().get(0).getId() + "  "
+                                           + tracker.findAll().get(0).getName() + ""
+                                           + tracker.findAll().get(0).getDecs() + "           "
+                                           + tracker.findAll().get(0).getId() + "\r\n")
                                 .append("-----------------------------------------------------\r\n")
                                 .toString()
                         )
@@ -172,7 +175,9 @@ public class StartUITest {
                                 .append(st2)
                                 .append("-----------------------------------------------------\r\n")
                                 .append("Номер заявки   Имя   Описание       id   \r\n")
-                                .append("1              " + tracker.findAll()[0].getName() + "" + tracker.findAll()[0].getDecs() + "           " + tracker.findAll()[0].getId() + "\r\n")
+                                .append("1              " + tracker.findAll().get(0).getName() + ""
+                                                          + tracker.findAll().get(0).getDecs() + "           "
+                                                          + tracker.findAll().get(0).getId() + "\r\n")
                                 .append("-----------------------------------------------------\r\n")
                                 .append("------------------ Поиск закончен -------------------\r\n")
                                 .toString()
