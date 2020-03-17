@@ -1,4 +1,4 @@
-package ru.job4j.Strategy;
+package ru.job4j.strategy;
 
 import org.junit.Test;
 
@@ -16,12 +16,12 @@ public class TriangleTest {
         Triangle triangle = new Triangle();
         assertThat(triangle.draw(), is(
                 new StringBuilder()
-                        .append("      *      \n"+
-                                "     * *     \n"+
-                                "    *   *    \n"+
-                                "   *     *   \n"+
-                                "  *       *  \n"+
-                                " *********** ")
+                        .append("      *      \n"
+                                + "     * *     \n"
+                                + "    *   *    \n"
+                                + "   *     *   \n"
+                                + "  *       *  \n"
+                                + " *********** ")
                         .toString()
         ));
     }

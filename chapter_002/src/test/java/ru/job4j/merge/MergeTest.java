@@ -1,4 +1,4 @@
-package ru.job4j.Merge;
+package ru.job4j.merge;
 
 import org.junit.Test;
 

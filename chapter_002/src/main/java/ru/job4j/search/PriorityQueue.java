@@ -18,7 +18,9 @@ public class PriorityQueue {
                     break;
                 } else {
                     g++;
-                    if (g == size) tasks.add(task);
+                    if (g == size) {
+                        tasks.add(task);
+                    }
                 }
             }
 
