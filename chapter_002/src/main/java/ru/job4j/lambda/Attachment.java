@@ -29,11 +29,15 @@ public class Attachment {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Attachment that = (Attachment) o;
-        return size == that.size &&
-                Objects.equals(image, that.image);
+        return size == that.size
+                && Objects.equals(image, that.image);
     }
 
     @Override
