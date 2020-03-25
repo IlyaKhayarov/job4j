@@ -7,9 +7,6 @@ public class BankService {
 
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
-//        if (!users.containsKey(user.getPassport())) {
-//            users.put(user, new ArrayList<>());
-//        }
     }
 
     public void addAccount(String passport, Account account) {
@@ -22,13 +19,16 @@ public class BankService {
 
     public User findByPassport(String passport) {
         User result = null;
-        Set keys = users.keySet();
-        for (Object obj : keys) {
-            User user = (User) obj;
-            if ((user.getPassport() == passport)) {
+        Set<User> keys = users.keySet();
+        for (User user : keys) {
+            if (user.getPassport().equals(passport)) {
                 result = user;
                 break;
             }
+        }
+        if (result == null) {
+            System.out.println("Passport not found");
+            System.exit(1);
         }
         return result;
     }
@@ -38,36 +38,24 @@ public class BankService {
         User user = findByPassport(passport);
         List<Account> list = users.get(user);
         for (Account acc : list) {
-            if (acc.getRequisite() == requisite) {
+            if (acc.getRequisite().equals(requisite)) {
                 account = acc;
                 break;
             }
         }
+
         return account;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String lastPassport, String lastRequisite, double amount) {
-        boolean bol = false;
         boolean rsl = false;
-        User user = findByPassport(srcPassport);
-        List<Account> list = users.get(user);
-        outerloop:
-        for (Account acc : list) {
-            if (acc.getRequisite() == srcRequisite) {
-                if (acc.getBalance() >= amount) {
-                    User user2 = findByPassport(lastPassport);
-                    List<Account> list2 = users.get(user2);
-                    for (Account acc2 : list2) {
-                        if (acc2.getRequisite() == lastRequisite) {
-                            rsl = true;
-                            acc.setBalance(acc.getBalance() - amount);
-                            acc2.setBalance(acc2.getBalance() + amount);
-                            break outerloop;
-                        }
-                    }
-                }
-            }
+        Account account1 = findByRequisite(srcPassport, srcRequisite);
+        Account account2 = findByRequisite(lastPassport, lastRequisite);
+        if (account1.getBalance() >= amount) {
+            account1.setBalance(account1.getBalance() - amount);
+            account2.setBalance(account2.getBalance() + amount);
+            rsl = true;
         }
         return rsl;
     }
@@ -76,8 +64,11 @@ public class BankService {
         List<Account> accounts = new ArrayList<>();
         String requisite = "3fdsbb9";
         accounts.add(new Account("3fdsbb9", 140));
-        int index = accounts.indexOf(new Account(requisite, -1));
+        int index = accounts.indexOf(new Account(requisite, 140));
         Account find = accounts.get(index);
         System.out.println(find.getRequisite() + " -> " + find.getBalance());
+        BankService b = new BankService();
+        b.addAccount("12", new Account("1", 100));
+        b.transferMoney("12", "1", "13", "2", 10.0);
     }
 }
